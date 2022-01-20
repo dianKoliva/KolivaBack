@@ -12,6 +12,6 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use('/km/users', users);
 
-app.listen(()=>{
+app.listen(process.env.port,()=>{
     console.log(`Listening on port ${process.env.port}`);
 })

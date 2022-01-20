@@ -2,7 +2,7 @@ const express=require('express')
 const app=express();
 const bodyParser = require("body-parser");
 require('dotenv').config();
-const port=400;
+require("./db/connect")
 
 
 app.use(bodyParser.urlencoded({
@@ -11,6 +11,6 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 
-app.listen(port,()=>{
+app.listen(()=>{
     console.log(`Listening on port ${process.env.port}`);
 })

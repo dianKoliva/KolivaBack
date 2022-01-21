@@ -15,3 +15,6 @@ var Umukozi=new Schema({
      }
 
 })
+
+var Umukozi=mongoose.model('Umukozi',Umukozi)
+module.exports = Umukozi;

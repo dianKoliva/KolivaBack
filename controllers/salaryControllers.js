@@ -161,6 +161,46 @@ exports.update=(req,res,next)=>{
 
  }
 
- exports.deletAll=(req,res,next)=>{
+ exports.deleteAll=(req,res,next)=>{
 
- }
+
+    const user= Umukozi.findById(req.params.id)
+    .exec()
+    .then(
+        ans=>{
+              let id=req.params.id;
+
+    Umukozi.remove({
+        _id:id
+    })
+    .exec()
+    .then(
+        result=>{
+            res.status(200).json({message:"deleted"})
+        }
+       
+    )
+    .catch(
+        err=>{
+   
+            res.status(500).json({
+                error:err
+            })
+        }
+
+    )
+        }
+)
+.catch(
+    err=>{
+        res.status(404).json({
+           error:"Umukozi not found"
+        })
+    }
+
+)
+
+
+
+  
+}

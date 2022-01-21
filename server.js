@@ -22,5 +22,5 @@ app.use('/km/abakozi',abakozi);
 
 app.listen(process.env.port,()=>{
     console.log(`Listening on port ${process.env.port}`);
-    console.log( date.toString().split("T"))
+
 })

@@ -5,5 +5,6 @@ const checker=require("../middle/check")
 
 
 router.get('/',salaryControl.getAllSalaries )
+router.post('/new',salaryControl.newSalary )
 
 module.exports=router;

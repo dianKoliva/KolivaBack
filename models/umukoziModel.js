@@ -1,7 +1,7 @@
 var mongoose=require('mongoose')
 var Schema =mongoose.Schema;
 
-var Umukozi=new Schema({
+var umukoziSchema=new Schema({
     _id:mongoose.Schema.Types.ObjectId,
     amazina: { type: String, required: true },
     nimero:{type:Number,required:true, unique:true,},
@@ -16,5 +16,5 @@ var Umukozi=new Schema({
 
 })
 
-var Umukozi=mongoose.model('Umukozi',Umukozi)
+var Umukozi=mongoose.model('umukozi',umukoziSchema)
 module.exports = Umukozi;

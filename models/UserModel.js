@@ -1,7 +1,7 @@
 var mongoose=require('mongoose')
 var Schema =mongoose.Schema;
 
-var User=new Schema({
+var userSchema=new Schema({
     _id:mongoose.Schema.Types.ObjectId,
     name: { type: String, required: true },
     email: { type: String,
@@ -16,5 +16,5 @@ var User=new Schema({
      }
 });
 
-var User = mongoose.model('User', User);
+var User = mongoose.model('user', userSchema);
 module.exports = User;

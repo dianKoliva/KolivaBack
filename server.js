@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use('/km/users', users);
 app.use('/km/abakozi',abakozi);
 
-var date=new Date()
+
 
 
 app.listen(process.env.port,()=>{

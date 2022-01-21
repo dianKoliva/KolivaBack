@@ -6,7 +6,9 @@ var umukoziSchema=new Schema({
     amazina: { type: String, required: true },
     nimero:{type:Number,required:true, unique:true,},
     umushahara:{type:Number,required:true},
-    created_at:{type:Date,required:true},
+    created_at:{type:Date,
+    default: new Date()
+    },
     deactivation_date:{type:Date,required:false},
     status: { 
         type: String,

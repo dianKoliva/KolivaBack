@@ -76,3 +76,124 @@ exports.newEmployee=(req, res,next) => {
   
 
 }
+
+exports.getById=(req, res,next) => {
+
+  
+
+    const user= Umukozi.findById(req.params.id)
+    .exec()
+    .then(
+        ans=>{
+            res.json({
+                umukozi:ans
+            })
+        }
+)
+.catch(
+    err=>{
+        res.status(500).json({
+            message:"Umukozi mushaka ntabashize kuboneka"
+        })
+    }
+
+)
+    
+}
+
+
+exports.update=(req,res,next)=>{
+    var id=req.params.id;
+
+
+    const user= Umukozi.findById(req.params.id)
+    .exec()
+    .then(
+        
+        resp=>{
+                let updateOps={};
+    const body=req.body;
+ 
+    for(const ops in body){
+        updateOps[ops]=body[ops];
+    }
+    
+ 
+    Umukozi.updateOne({_id:id}, {$set:updateOps})
+    .exec()
+    .then( resp=>{
+       res.status(201).json(resp) ;
+    }
+     )
+    .catch(
+     err=>{
+        
+         res.status(500).json({
+             error:err
+         })
+     }
+ 
+ )
+ 
+        }
+        
+)
+.catch(
+    err=>{
+
+        res.status(500).json({
+            message:"Umukozi ntabwo abashije kubonek"
+        })
+    }
+)
+
+        
+
+
+
+ }
+
+
+//  exports.deleteById=(req,res,next)=>{
+
+
+//     const user= Umukozi.findById(req.params.id)
+//     .exec()
+//     .then(
+//         ans=>{
+//               let id=req.params.id;
+
+//     Umukozi.remove({
+//         _id:id
+//     })
+//     .exec()
+//     .then(
+//         result=>{
+//             res.status(200).json({message:"deleted"})
+//         }
+       
+//     )
+//     .catch(
+//         err=>{
+   
+//             res.status(500).json({
+//                 error:err
+//             })
+//         }
+
+//     )
+//         }
+// )
+// .catch(
+//     err=>{
+//         res.status(404).json({
+//            error:"Umukozi not found"
+//         })
+//     }
+
+// )
+
+
+
+  
+// }

@@ -4,7 +4,7 @@ var Schema =mongoose.Schema;
 var umukoziSchema=new Schema({
     _id:mongoose.Schema.Types.ObjectId,
     amazina: { type: String, required: true },
-    nimero:{type: String,required:true, unique:true},
+    nimero:{type: String,required:true},
     umushahara:{type:Number,required:true},
     created_at:{type:Date,
     default: new Date()

@@ -86,3 +86,81 @@ exports.newSalary=(req, res,next) => {
 
 }
 
+exports.getById=(req, res,next) => {
+
+  
+
+    const user= Umushahara.findById(req.params.id)
+    .exec()
+    .then(
+        ans=>{
+            res.json({
+                umukozi:ans
+            })
+        }
+)
+.catch(
+    err=>{
+        res.status(500).json({
+            message:"Doesn't exist"
+        })
+    }
+
+)
+    
+}
+
+exports.update=(req,res,next)=>{
+    var id=req.params.id;
+
+
+    const user= Umushahara.findById(req.params.id)
+    .exec()
+    .then(
+        
+        resp=>{
+                let updateOps={};
+    const body=req.body;
+ 
+    for(const ops in body){
+        updateOps[ops]=body[ops];
+    }
+    
+ 
+    Umushahara.updateOne({_id:id}, {$set:updateOps})
+    .exec()
+    .then( resp=>{
+       res.status(201).json({message:"updated"}) ;
+    }
+     )
+    .catch(
+     err=>{
+        
+         res.status(500).json({
+             error:err
+         })
+     }
+ 
+ )
+ 
+        }
+        
+)
+.catch(
+    err=>{
+
+        res.status(500).json({
+            message:"Umukozi ntabwo abashije kubonek"
+        })
+    }
+)
+
+        
+
+
+
+ }
+
+ exports.deletAll=(req,res,next)=>{
+
+ }

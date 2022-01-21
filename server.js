@@ -6,6 +6,7 @@ var users = require("./routes/userRoutes.js");
 require("./db/connect")
 const morgan =require( "morgan")
 const abakozi =require("./routes/abakoziRoutes")
+const salary=require("./routes/salaryRoutes")
 
 
 app.use(bodyParser.urlencoded({
@@ -16,6 +17,7 @@ app.use(bodyParser.json());
 
 app.use('/km/users', users);
 app.use('/km/abakozi',abakozi);
+app.use("/km/salary",salary)
 
 
 

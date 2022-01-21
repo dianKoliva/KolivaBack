@@ -33,11 +33,11 @@ exports.getAllEmployees=(req, res,next) => {
 exports.newEmployee=(req, res,next) => {
 
 
-    Umukozi.find({nimero:req.body.email})
+    Umukozi.find({nimero:req.body.nimero})
     .exec()
     .then(user=>{
         if(user.length>=1){
-            // return res.status(409).json({message:"Employee with such a number exists"})
+            return res.status(409).json({message:"Employee with such a number exists"})
         }
         else{
             

@@ -7,5 +7,6 @@ router.post("/new",umukoziControl.newEmployee)
 router.get('/:id', umukoziControl.getById)
 router.put("/:id",umukoziControl.update)
 router.put("/disable/:id",umukoziControl.disable)
+router.put("/enable/:id",umukoziControl.enable)
 
 module.exports=router;

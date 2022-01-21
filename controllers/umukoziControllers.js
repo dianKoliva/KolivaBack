@@ -198,6 +198,49 @@ exports.update=(req,res,next)=>{
 
  }
 
+ exports.enable=(req,res,next)=>{
+    var id=req.params.id;
+
+
+    const user= Umukozi.findById(req.params.id)
+    .exec()
+    .then(
+        
+        resp=>{
+ 
+    Umukozi.updateOne({_id:id}, {status:'active'})
+    .exec()
+    .then( resp=>{
+       res.status(200).json({message:"Employee activated"}) ;
+    }
+     )
+    .catch(
+     err=>{
+        
+         res.status(500).json({
+             error:err
+         })
+     }
+ 
+ )
+ 
+        }
+        
+)
+.catch(
+    err=>{
+
+        res.status(500).json({
+            message:"Umukozi ntabwo abashije kubonek"
+        })
+    }
+)
+
+        
+
+
+
+ }
 
 //  exports.deleteById=(req,res,next)=>{
 

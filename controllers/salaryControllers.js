@@ -1,7 +1,9 @@
 var Umushahara = require('../models/umushaharaModel');
+var Abakozi =require("../models/umukoziModel");
 const bcrypt = require('bcrypt')
 const mongoose= require('mongoose');
 const jwt=require("jsonwebtoken");
+const Umukozi = require('../models/umukoziModel');
 
 
 exports.getAllSalaries=(req, res,next) => {
@@ -41,28 +43,37 @@ exports.newSalary=(req, res,next) => {
             return res.status(409).json({message:"Employee salary exists"})
         }
         else{
-            
-                    const employee = new Umushahara({
+          
+            if(Umukozi.find({_id:req.body.umukozi_id})){
+                const employee = new Umushahara({
         
-                        umukozi_id:req.body.umukozi_id,
-                    });
-                    employee
-                    .save()
-                    .then(result=>{
-                        res.status(201).json({
-                            message:"Salary Created"
-                        })
-                       
+                    umukozi_id:req.body.umukozi_id,
+                });
+                employee
+                .save()
+                .then(result=>{
+                    res.status(201).json({
+                        message:"Salary Created"
                     })
-                    .catch(
-                        err=>{
-                            
-                            res.status(500).json({
-                                error:err
-                            })
-                        }
-        
-                    )
+                   
+                })
+                .catch(
+                    err=>{
+                        
+                        res.status(500).json({
+                            error:err
+                        })
+                    }
+    
+                ) 
+            
+            
+                }
+                else{
+                    res.status(400).json({
+                        message:"Employee not found"
+                    })
+                }       
                 
         
             

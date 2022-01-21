@@ -71,7 +71,7 @@ exports.newSalary=(req, res,next) => {
                 }
                 else{
                     res.status(400).json({
-                        message:"Employee not found"
+                        message:"employee to create salary for doesn't exist"
                     })
                 }       
                 
@@ -85,3 +85,4 @@ exports.newSalary=(req, res,next) => {
   
 
 }
+

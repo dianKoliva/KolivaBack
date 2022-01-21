@@ -37,7 +37,7 @@ exports.newEmployee=(req, res,next) => {
     .exec()
     .then(user=>{
         if(user.length>=1){
-            return res.status(409).json({message:"Employee with such a number exists"})
+            // return res.status(409).json({message:"Employee with such a number exists"})
         }
         else{
             

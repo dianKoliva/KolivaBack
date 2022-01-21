@@ -167,7 +167,7 @@ exports.update=(req,res,next)=>{
     Umukozi.updateOne({_id:id}, {status:'inactive'})
     .exec()
     .then( resp=>{
-       res.status(201).json(resp) ;
+       res.status(201).json({message:"Employee inactivated"}) ;
     }
      )
     .catch(

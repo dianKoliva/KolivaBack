@@ -44,6 +44,7 @@ exports.newEmployee=(req, res,next) => {
                     const employee = new Umukozi({
         
                         _id:new mongoose.Types.ObjectId(),
+                        amazina:req.body.amazina,
                         nimero:req.body.nimero,
                         umushahara:req.body.umushahara,
                         created_at:req.body.created_at,

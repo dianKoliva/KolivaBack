@@ -14,12 +14,13 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(morgan('dev'))
+app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/km/users', users);
 app.use('/km/abakozi',abakozi);
 app.use("/km/salary",salary)
-app.use(cors());
+
 
 
 

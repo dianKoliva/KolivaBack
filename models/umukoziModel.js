@@ -1,5 +1,7 @@
 var mongoose=require('mongoose')
 var Schema =mongoose.Schema;
+const current = new Date();
+    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
 var umukoziSchema=new Schema({
     _id:mongoose.Schema.Types.ObjectId,
@@ -7,7 +9,7 @@ var umukoziSchema=new Schema({
     nimero:{type: String,required:true},
     umushahara:{type:Number,required:true},
     created_at:{type:Date,
-    default: new Date()
+    default: date
     },
     deactivation_date:{type:Date,required:false},
     status: { 

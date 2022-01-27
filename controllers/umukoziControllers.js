@@ -53,7 +53,8 @@ exports.newEmployee=(req, res,next) => {
                     .save()
                     .then(result=>{
                         res.status(201).json({
-                            message:"Employee Created"
+                            message:"Employee Created",
+                            user:result
                         })
                        
                     })

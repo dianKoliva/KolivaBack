@@ -17,10 +17,7 @@ var umushaharaModel= new Schema({
         type:Number,
         default:0,
     },
-    total_days:{
-        type:Number,
-        default:0
-    }
+  
 })
 
 var Umushahara= mongoose.model("umushahara",umushaharaModel);

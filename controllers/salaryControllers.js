@@ -43,10 +43,7 @@ exports.newSalary=(req, res,next) => {
             return res.status(409).json({message:"Employee salary exists"})
         }
         else{
-           var found= Umukozi.find({_id:req.body.umukozi_id})
-            if(found.length>=1){
                 const employee = new Umushahara({
-        
                     umukozi_id:req.body.umukozi_id,
                 });
                 employee
@@ -68,12 +65,8 @@ exports.newSalary=(req, res,next) => {
                 ) 
             
             
-                }
-                else{
-                    res.status(400).json({
-                        message:"employee to create salary for doesn't exist"
-                    })
-                }       
+                
+                    
                 
         
             

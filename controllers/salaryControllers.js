@@ -41,6 +41,7 @@ exports.newSalary=(req, res,next) => {
     .then(user=>{
         if(user.length>=1){
             return res.status(409).json({message:"Employee salary exists"})
+            
         }
         else{
                 const employee = new Umushahara({
